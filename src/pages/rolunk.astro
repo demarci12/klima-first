@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Rólunk | KlimaFirst";
+const description = "Ismerje meg a KlimaFirst csapatát és szolgáltatásainkat Budapesten.";
+---
+
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/rolunk">
+  <article class="space-y-8">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-900">Rólunk</h1>
+      <p class="mt-3 text-sm text-slate-600">
+        KlimaFirst – Elsők a Megoldásban. Szakszerű klímaszerelés Budapesten.
+      </p>
+    </header>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Ki vagyunk?</h2>
+      <p class="text-sm text-slate-600">
+        A KlimaFirst a Juhász Solutions Kft. márkája, amely több mint 5000 klíma telepítésével rendelkezik Budapesten és környékén.
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Szolgáltatásaink</h2>
+      <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+        <li>Klíma telepítés és értékesítés</li>
+        <li>Klíma javítás és szerviz</li>
+        <li>Klíma tisztítás és karbantartás</li>
+        <li>Fűtés klímával</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>

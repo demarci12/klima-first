@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import RelatedPosts from "../../components/RelatedPosts.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("tudastar");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  canonical={`https://klimafirst.hu/tudastar/${post.slug}`}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.data.title,
+    description: post.data.description,
+    image: post.data.image ? `https://klimafirst.hu${post.data.image}` : "https://klimafirst.hu/images/og-default.jpg",
+    datePublished: post.data.pubDate.toISOString(),
+    dateModified: post.data.updatedDate ? post.data.updatedDate.toISOString() : post.data.pubDate.toISOString(),
+    author: { "@type": "Person", name: post.data.author, url: "https://klimafirst.hu/rolunk" },
+    publisher: {
+      "@type": "Organization",
+      name: "KlimaFirst",
+      logo: { "@type": "ImageObject", url: "https://klimafirst.hu/images/logo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://klimafirst.hu/tudastar/${post.slug}` },
+  }}
+  frontmatter={post.data}
+>
+  <Content />
+
+  <RelatedPosts tags={post.data.tags} currentSlug={post.slug} />
+</BlogLayout>

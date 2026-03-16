@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+const title = "Ajánlatkérés | KlimaFirst";
+const description = "Kérjen részletes, személyre szabott ajánlatot klímaszerelésre Budapesten.";
+---
+
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/ajanlatkeres">
+  <article class="space-y-8">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-900">Részletes Ajánlatkérés</h1>
+      <p class="mt-3 text-sm text-slate-600">
+        Töltse ki az űrlapot, és kollégánk hamarosan felveszi Önnel a kapcsolatot ingyenes helyszíni felmérés egyeztetésére.
+      </p>
+    </header>
+
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="space-y-6">
+        <section class="space-y-4">
+          <h2 class="text-xl font-semibold text-slate-900">Miért érdemes minket választani?</h2>
+          <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+            <li>Ingyenes helyszíni felmérés Budapesten</li>
+            <li>Személyre szabott ajánlat készítése</li>
+            <li>Átlátható árak, nincs rejtett költség</li>
+            <li>Gyors határidők és garancia</li>
+          </ul>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="text-xl font-semibold text-slate-900">Milyen információkra van szükségünk?</h2>
+          <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+            <li>Ingatlan címe és típusa</li>
+            <li>Helyiség mérete (m²)</li>
+            <li>Kívánt készülék típusa</li>
+            <li>Előnyben részesített márka</li>
+          </ul>
+        </section>
+      </div>
+
+      <ContactForm />
+    </div>
+  </article>
+</BaseLayout>

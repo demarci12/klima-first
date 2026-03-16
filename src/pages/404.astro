@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "404 - Oldal nem található | KlimaFirst";
+const description = "Az oldal, amit keresett, nem található. Keressen minket klímaszerelés ügyében Budapesten.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="text-center space-y-6">
+    <h1 class="text-6xl font-bold text-slate-900">404</h1>
+    <h2 class="text-2xl font-semibold text-slate-700">Oldal nem található</h2>
+    <p class="text-sm text-slate-600">
+      Az oldal, amit keresett, sajnos nem található. Kérjük, ellenőrizze az URL-t vagy térjen vissza a főoldalra.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/"
+        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
+      >
+        Főoldal
+      </a>
+      <a
+        href="/kapcsolat"
+        class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
+      >
+        Kapcsolat
+      </a>
+    </div>
+  </div>
+</BaseLayout>

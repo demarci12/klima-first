@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import KlimaCalculator from "../components/KlimaCalculator.astro";
+
+const title = "Klíma Méretező Kalkulátor | KlimaFirst";
+const description = "Számítsa ki ingyen, mekkora teljesítményű klímára van szüksége a helyiség mérete alapján.";
+---
+
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/klima-meretezo-kalkulator">
+  <article class="space-y-8">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-900">Klíma Méretező Kalkulátor</h1>
+      <p class="mt-3 text-sm text-slate-600">
+        Adja meg a helyiség méretét és plafonmagasságát, hogy megtudja, mekkora teljesítményű klímára van szüksége.
+      </p>
+    </header>
+
+    <KlimaCalculator />
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Hogyan működik a kalkulátor?</h2>
+      <p class="text-sm text-slate-600">
+        A számítás alapja a helyiség térfogata és egy általános energiaigény-számítás. A pontos teljesítményt azonban csak helyszíni felmérés után lehet meghatározni.
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Miért fontos a helyes méret?</h2>
+      <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+        <li>Energiatakarékosság – nem pazarolja az áramot</li>
+        <li>Hatékony hűtés/fűtés – megfelelő komfort</li>
+        <li>Hosszabb élettartam – nem terheli túl a készüléket</li>
+      </ul>
+    </section>
+
+    <div class="flex flex-wrap gap-4">
+      <a
+        href="/ajanlatkeres"
+        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
+      >
+        Pontos Felmérés Kérése
+      </a>
+      <a
+        href="tel:+36203394164"
+        class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
+      >
+        +36 20 339 4164
+      </a>
+    </div>
+  </article>
+</BaseLayout>
