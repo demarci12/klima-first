@@ -1,0 +1,67 @@
+---
+const { inline = false } = Astro.props;
+---
+
+<section class={inline ? "rounded-2xl border border-slate-200 bg-white p-4" : "rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"}>
+  <h2 class="text-lg font-semibold text-slate-900">Klíma méretező kalkulátor</h2>
+  <p class="mt-2 text-sm text-slate-600">
+    Add meg a helyiség méretét és plafonmagasságát, hogy becslést kapj a szükséges teljesítményre.
+  </p>
+
+  <div class="mt-4 grid gap-4 sm:grid-cols-3">
+    <label class="text-sm font-medium text-slate-700">
+      Lakás mérete (m²)
+      <input
+        id="kf-area"
+        type="number"
+        min="1"
+        step="1"
+        class="mt-1 w-full rounded border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+      />
+    </label>
+
+    <label class="text-sm font-medium text-slate-700">
+      Magasság (m)
+      <input
+        id="kf-height"
+        type="number"
+        min="2"
+        step="0.1"
+        value="2.7"
+        class="mt-1 w-full rounded border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+      />
+    </label>
+
+    <div class="text-sm">
+      <p class="font-medium text-slate-700">Szükséges teljesítmény</p>
+      <p id="kf-result" class="mt-2 text-2xl font-semibold text-primary">– kW</p>
+    </div>
+  </div>
+
+  <p class="mt-4 text-xs text-slate-500">
+    A számítás tájékoztató jellegű, pontosabb felméréshez kérj ingyenes helyszíni vizsgálatot.
+  </p>
+
+  <script>
+    const areaInput = document.getElementById("kf-area");
+    const heightInput = document.getElementById("kf-height");
+    const result = document.getElementById("kf-result");
+
+    function updateResult() {
+      const area = parseFloat(areaInput.value);
+      const height = parseFloat(heightInput.value);
+      if (!area || !height) {
+        result.textContent = "– kW";
+        return;
+      }
+      // Simple rule: 100 W/m2 (3 m magassággal számolva) – korrigálva a mennyezeti magassággal
+      const base = 0.1; // kW per m2
+      const factor = height / 2.7;
+      const kW = Math.max(1, Math.round(area * base * factor));
+      result.textContent = `${kW} kW`;
+    }
+
+    areaInput.addEventListener("input", updateResult);
+    heightInput.addEventListener("input", updateResult);
+  </script>
+</section>

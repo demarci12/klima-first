@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /thank-you
+Disallow: /api/
+Sitemap: https://klimafirst.hu/sitemap-index.xml
+Host: https://klimafirst.hu

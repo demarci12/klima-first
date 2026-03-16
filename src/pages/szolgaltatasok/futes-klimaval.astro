@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FAQ from "../../components/FAQ.astro";
+import { faq } from "../../data/faq";
+
+const title = "Fűtés Klímával Budapest | Energiatakarékos Megoldás | KlimaFirst";
+const description =
+  "Klímával fűtés Budapesten – gazdaságos alternatíva gáz helyett. Ingyenes felmérés. Dolgozunk H és GEO tarifával is.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Fűtés klímával",
+  serviceType: "HVAC Heating",
+  provider: { "@type": "LocalBusiness", name: "KlimaFirst", url: "https://klimafirst.hu" },
+  areaServed: { "@type": "City", name: "Budapest" },
+  description,
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "87" },
+  offers: { "@type": "Offer", priceCurrency: "HUF", price: "75000", priceSpecification: { "@type": "UnitPriceSpecification", priceCurrency: "HUF", unitText: "beltéri egység" } },
+};
+---
+
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/szolgaltatasok/futes-klimaval" schema={schema}>
+  <article class="space-y-10">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-900">Fűtés Klímával – Energiatakarékos Megoldás Budapesten</h1>
+      <p class="mt-3 text-sm text-slate-600">
+        Klímával fűtés, H és GEO tarifával – modern, fenntartható és költséghatékony alternatíva.
+      </p>
+    </header>
+
+    <section class="grid gap-6 lg:grid-cols-2">
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">Hogyan működik?</h2>
+        <p class="text-sm text-slate-600">
+          Az inverteres klímák képesek fűtésre is, akár -15°C-ig. A hőszivattyú elvén működnek, és hatékonyan alakítják át a külső levegő energiáját fűtésre.
+        </p>
+        <p class="text-sm text-slate-600">
+          A SCOP érték mutatja az éves hatékonyságot; minél magasabb, annál kevesebb villamos energiát fogyaszt a rendszer.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">Fűtés vs. gáz vs. villany</h2>
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-slate-50">
+              <th class="border border-slate-200 px-3 py-2 text-left">Megoldás</th>
+              <th class="border border-slate-200 px-3 py-2 text-left">Költség</th>
+              <th class="border border-slate-200 px-3 py-2 text-left">Hatékonyság</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-slate-200 px-3 py-2">Klíma (SCOP alapú)</td>
+              <td class="border border-slate-200 px-3 py-2">Alacsonyabb üzemeltetés</td>
+              <td class="border border-slate-200 px-3 py-2">Magas (3-5)</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="border border-slate-200 px-3 py-2">Gázkazán</td>
+              <td class="border border-slate-200 px-3 py-2">Közepes</td>
+              <td class="border border-slate-200 px-3 py-2">Közepes</td>
+            </tr>
+            <tr>
+              <td class="border border-slate-200 px-3 py-2">Villanyfűtés</td>
+              <td class="border border-slate-200 px-3 py-2">Magas</td>
+              <td class="border border-slate-200 px-3 py-2">Alacsony</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="grid gap-6 lg:grid-cols-2">
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">H tarifa és GEO tarifa</h2>
+        <p class="text-sm text-slate-600">
+          A H tarifa kedvezőbb áramdíjat biztosít éjszaka, a GEO tarifa pedig a földhő bővítésekor érhető el. A klímákkal kombinálva még többet lehet spórolni.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">Milyen készülékek alkalmasak?</h2>
+        <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+          <li>Inverteres split rendszerek</li>
+          <li>Dual és multi-split megoldások</li>
+          <li>Nagy SCOP értékű, alacsony zajszintű készülékek</li>
+          <li>Fűtésre optimalizált modellek -15°C-ig</li>
+        </ul>
+      </div>
+    </section>
+
+    <FAQ items={faq.slice(0, 5)} />
+  </article>
+</BaseLayout>

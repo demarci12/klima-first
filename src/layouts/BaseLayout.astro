@@ -1,13 +1,46 @@
 ---
+import SEO from "../components/SEO.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FloatingContact from "../components/FloatingContact.astro";
+import CookieBanner from "../components/CookieBanner.astro";
+
+const { title, description, canonical, schema, isArticle = false } = Astro.props;
+
+const pageTitle = title || "Klíma szerelés Budapest";
+const pageDescription =
+  description ||
+  "Klíma telepítés, javítás és karbantartás Budapesten - ingyenes helyszíni felmérés.";
 ---
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="hu">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <slot name="head" />
+    <SEO
+      title={pageTitle}
+      description={pageDescription}
+      canonical={canonical}
+      schema={schema}
+      isArticle={isArticle}
+    />
+    <meta name="color-scheme" content="light dark" />
   </head>
-  <body>
-    <slot />
+  <body class="min-h-screen bg-white text-slate-900 leading-relaxed">
+    <a
+      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:p-4"
+      href="#main"
+    >
+      Ugrás a tartalomhoz
+    </a>
+
+    <Header />
+
+    <main id="main" class="mx-auto w-full max-w-6xl px-4 py-10">
+      <slot />
+    </main>
+
+    <Footer />
+    <FloatingContact />
+    <CookieBanner />
   </body>
 </html>

@@ -1,0 +1,171 @@
+export type Kerulet = {
+  slug: string;
+  romanNum: string;
+  name: string;
+  landmark: string;
+  description: string;
+};
+
+export const keruletek: Kerulet[] = [
+  {
+    slug: "i-kerulet",
+    romanNum: "I",
+    name: "I. kerület",
+    landmark: "Várnegyed, Budavár",
+    description: "A belváros szívében, a Várnegyed és a környező történelmi utcák szomszédságában.",
+  },
+  {
+    slug: "ii-kerulet",
+    romanNum: "II",
+    name: "II. kerület",
+    landmark: "Rózsadomb, Pasarét",
+    description: "Zöldövezeti hangulat és családi házak jellegzetességei jellemzik.",
+  },
+  {
+    slug: "iii-kerulet",
+    romanNum: "III",
+    name: "III. kerület",
+    landmark: "Óbuda, Aquincum",
+    description: "Óbuda történelmi negyede és modern lakóparkok keveredése.",
+  },
+  {
+    slug: "iv-kerulet",
+    romanNum: "IV",
+    name: "IV. kerület",
+    landmark: "Újpest központja",
+    description: "Gyorsan fejlődő városrész, sportpályákkal és bevásárlóközpontokkal.",
+  },
+  {
+    slug: "v-kerulet",
+    romanNum: "V",
+    name: "V. kerület",
+    landmark: "Belváros-Lipótváros",
+    description: "A város szíve, irodákkal, kávézókkal és kulturális látnivalókkal.",
+  },
+  {
+    slug: "vi-kerulet",
+    romanNum: "VI",
+    name: "VI. kerület",
+    landmark: "Terézváros",
+    description: "Színházak és pezsgő éjszakai élet jellemzi a környéket.",
+  },
+  {
+    slug: "vii-kerulet",
+    romanNum: "VII",
+    name: "VII. kerület",
+    landmark: "Erzsébetváros, Kazinczy utca",
+    description: "Vibráló belvárosi negyed romkocsmákkal és fiatalos hangulattal.",
+  },
+  {
+    slug: "viii-kerulet",
+    romanNum: "VIII",
+    name: "VIII. kerület",
+    landmark: "Józsefváros",
+    description: "Kulturális megújulás alatt álló városrész, egyetemek és művészeti helyszínek.",
+  },
+  {
+    slug: "ix-kerulet",
+    romanNum: "IX",
+    name: "IX. kerület",
+    landmark: "Ferencváros",
+    description: "Modern lakónegyedek és a Duna-parti sétány közelsége.",
+  },
+  {
+    slug: "x-kerulet",
+    romanNum: "X",
+    name: "X. kerület",
+    landmark: "Kőbánya",
+    description: "Ipari hagyományokkal bíró terület, jó közlekedési kapcsolatokkal.",
+  },
+  {
+    slug: "xi-kerulet",
+    romanNum: "XI",
+    name: "XI. kerület",
+    landmark: "Újbuda",
+    description: "Egyetemek és modern lakóparkok, dinamikusan fejlődő környék.",
+  },
+  {
+    slug: "xii-kerulet",
+    romanNum: "XII",
+    name: "XII. kerület",
+    landmark: "Hegyvidék",
+    description: "Dombokkal szabdalt zöldövezet és exkluzív családi házak.",
+  },
+  {
+    slug: "xiii-kerulet",
+    romanNum: "XIII",
+    name: "XIII. kerület",
+    landmark: "Újlipótváros",
+    description: "Modern irodák és panelházak keveredése a Dunához közel.",
+  },
+  {
+    slug: "xiv-kerulet",
+    romanNum: "XIV",
+    name: "XIV. kerület",
+    landmark: "Zugló",
+    description: "Családi házas övezet, parkokkal és jó közlekedéssel.",
+  },
+  {
+    slug: "xv-kerulet",
+    romanNum: "XV",
+    name: "XV. kerület",
+    landmark: "Rákospalota",
+    description: "Nyugodt lakóövezet, könnyű parkolással és zöldterületekkel.",
+  },
+  {
+    slug: "xvi-kerulet",
+    romanNum: "XVI",
+    name: "XVI. kerület",
+    landmark: "Mátyásföld",
+    description: "Családias hangulat, kertvárosi házak és sportpályák.",
+  },
+  {
+    slug: "xvii-kerulet",
+    romanNum: "XVII",
+    name: "XVII. kerület",
+    landmark: "Rákosmente",
+    description: "Dinamikusan növekvő lakóparkok és kertvárosi övezetek.",
+  },
+  {
+    slug: "xviii-kerulet",
+    romanNum: "XVIII",
+    name: "XVIII. kerület",
+    landmark: "Pestszentlőrinc",
+    description: "Családi házas övezet, jó infrastruktúrával és zöldterületekkel.",
+  },
+  {
+    slug: "xix-kerulet",
+    romanNum: "XIX",
+    name: "XIX. kerület",
+    landmark: "Kispest",
+    description: "Lakótelepek és családi házak, gyors elérhetőség a belváros felé.",
+  },
+  {
+    slug: "xx-kerulet",
+    romanNum: "XX",
+    name: "XX. kerület",
+    landmark: "Pesterzsébet",
+    description: "Közösségi élet és fejlesztések jellemzik, zöldterületek közelében.",
+  },
+  {
+    slug: "xxi-kerulet",
+    romanNum: "XXI",
+    name: "XXI. kerület",
+    landmark: "Csepel",
+    description: "Folyam menti kerület, vegyes ipari és lakóövezet.",
+  },
+  {
+    slug: "xxii-kerulet",
+    romanNum: "XXII",
+    name: "XXII. kerület",
+    landmark: "Budafok",
+    description: "Borkultúra és családi házas övezet a Duna partján.",
+  },
+  {
+    slug: "xxiii-kerulet",
+    romanNum: "XXIII",
+    name: "XXIII. kerület",
+    landmark: "Soroksár",
+    description: "Zöldövezeti jelleg, könnyű elérhetőség a városközpont felé.",
+  },
+];

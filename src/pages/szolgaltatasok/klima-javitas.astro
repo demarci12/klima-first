@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FAQ from "../../components/FAQ.astro";
+import { faq } from "../../data/faq";
+
+const title = "Klíma Javítás Budapest | KlimaFirst";
+const description =
+  "Gyors és megbízható klíma javítás Budapesten, hibakereséssel és alkatrészbeszerzéssel.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Klíma javítás",
+  serviceType: "HVAC Repair",
+  provider: { "@type": "LocalBusiness", name: "KlimaFirst", url: "https://klimafirst.hu" },
+  areaServed: { "@type": "City", name: "Budapest" },
+  description,
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "87" },
+  offers: { "@type": "Offer", priceCurrency: "HUF", price: "75000", priceSpecification: { "@type": "UnitPriceSpecification", priceCurrency: "HUF", unitText: "beltéri egység" } },
+};
+---
+
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/szolgaltatasok/klima-javitas" schema={schema}>
+  <article class="space-y-8">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-900">Klíma Javítás Budapesten</h1>
+      <p class="mt-3 text-sm text-slate-600">
+        Gyors hibakeresés és szakértői javítás minden klíma márkához – akár aznapra is.
+      </p>
+    </header>
+
+    <section class="grid gap-6 lg:grid-cols-2">
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">Szolgáltatásaink</h2>
+        <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+          <li>Részletes hibaelemzés és gyors hibaelhárítás.</li>
+          <li>Alkatrész beszerzés és garanciális csere.</li>
+          <li>Rendszeres karbantartási csomagok.</li>
+          <li>Éjjel-nappali elérhetőség sürgős esetekre.</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">Miért válasszon minket?</h2>
+        <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+          <li>Gyors reagálás a bejelentés után.</li>
+          <li>Tapasztalt szerelők és magyar alkatrészbeszerzés.</li>
+          <li>Átlátható, fix árak hibafelmérés után.</li>
+          <li>Szaktanácsadás a meghibásodás megelőzésére.</li>
+        </ul>
+      </div>
+    </section>
+
+    <FAQ items={faq.slice(0, 5)} />
+  </article>
+</BaseLayout>

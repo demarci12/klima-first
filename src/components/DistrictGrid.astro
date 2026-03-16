@@ -1,0 +1,23 @@
+---
+import { keruletek } from "../data/keruletek";
+---
+
+<section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <h2 class="text-xl font-semibold text-slate-900">Klímaszerelés Budapest mind a 23 kerületében</h2>
+  <p class="mt-3 text-sm text-slate-600">
+    Budapesti klímaszerelés minden kerületben. Gyors reagálás, ingyenes felmérés és budapesti kiszállás.
+  </p>
+
+  <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {keruletek.map((kerulet) => (
+      <a
+        key={kerulet.slug}
+        href={`/budapest/${kerulet.slug}`}
+        class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:border-primary hover:bg-white"
+      >
+        <p class="text-sm font-semibold text-slate-900">{kerulet.name}</p>
+        <p class="mt-1 text-xs text-slate-600">{kerulet.landmark}</p>
+      </a>
+    ))}
+  </div>
+</section>

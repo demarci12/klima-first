@@ -1,17 +1,188 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import TrustBar from "../components/TrustBar.astro";
+import DistrictGrid from "../components/DistrictGrid.astro";
+import KlimaCalculator from "../components/KlimaCalculator.astro";
+import PriceTable from "../components/PriceTable.astro";
+import { pricing } from "../data/pricing";
+
+const title = "Klímaszerelés Budapest | Ingyenes Felmérés";
+const description =
+  "Szakszerű klímaszerelés Budapesten, ingyenes helyszíni felméréssel. Telepítés, javítás, karbantartás – mind a 23 kerületben. +36 20 339 4164";
+
+const trustItems = [
+  { label: "5000+ elvégzett szerelés", value: "Több ezer elégedett ügyfél", icon: "✓" },
+  { label: "Ingyenes felmérés és kiszállás", value: "Budapesten belül díjmentesen", icon: "🏠" },
+  { label: "12 hónap garancia", value: "Munkánkra és anyagokra", icon: "🛡️" },
+  { label: "Gyors határidő", value: "Általában 1-3 munkanap", icon: "⚡" },
+];
+
+const services = [
+  {
+    title: "Klíma Telepítés",
+    description: "Ingyenes felmérés és tiszta, esztétikus szerelés.",
+    href: "/szolgaltatasok/klima-telepites",
+  },
+  {
+    title: "Klíma Javítás",
+    description: "Gyors hibakeresés és szakszerű javítás minden márkához.",
+    href: "/szolgaltatasok/klima-javitas",
+  },
+  {
+    title: "Klíma Tisztítás",
+    description: "Professzionális karbantartás a hosszabb élettartamért.",
+    href: "/szolgaltatasok/klima-tisztitas",
+  },
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astro Starter</title>
-  </head>
-  <body>
-    <main>
-      <h1>Hello, Astro!</h1>
-      <p>Your Astro project is set up and ready to go.</p>
-      <p>Run <code>npm run dev</code> to start the dev server.</p>
-    </main>
-  </body>
-</html>
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/">
+  <section class="space-y-10">
+    <header class="rounded-2xl border border-slate-200 bg-white p-10 shadow-sm">
+      <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="text-sm font-semibold text-secondary">Elsők a Megoldásban</p>
+          <h1 class="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+            Klímaszerelés Budapest – Ingyenes Felméréssel
+          </h1>
+          <p class="mt-5 text-base text-slate-600">
+            Minőségi klíma telepítés, javítás és karbantartás Budapesten. Megbízható szakemberek, személyre
+            szabott árak, gyors kiszállás.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="/ajanlatkeres"
+              class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
+            >
+              Ingyenes Ajánlatkérés
+            </a>
+            <a
+              href="tel:+36203394164"
+              class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
+            >
+              Hívjon Most: +36 20 339 4164
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <picture>
+            <source srcset="/images/hero.webp" type="image/webp" />
+            <img
+              src="/images/hero.webp"
+              alt="Klímaszerelés Budapest"
+              class="h-64 w-full rounded-2xl object-cover shadow-lg sm:h-80"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+        </div>
+      </div>
+    </header>
+
+    <TrustBar items={trustItems} />
+
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold text-slate-900">Szolgáltatásaink</h2>
+      <p class="text-sm text-slate-600">
+        Teljes körű klímaszerelés Budapesten minden kerületben. Válassza a legjobb megoldást az Ön igényeihez.
+      </p>
+      <div class="grid gap-6 lg:grid-cols-3">
+        {services.map((service) => (
+          <ServiceCard
+            key={service.href}
+            title={service.title}
+            description={service.description}
+            href={service.href}
+          />
+        ))}
+        <ServiceCard
+          title="Fűtés Klímával"
+          description="Energiatakarékos fűtés inverteres klímával – H és GEO tarifa támogatás.
+"
+          href="/szolgaltatasok/futes-klimaval"
+          icon="🔥"
+        />
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <h2 class="text-2xl font-semibold text-slate-900">
+            Nem tudja mekkora klímára van szüksége?
+          </h2>
+          <p class="text-sm text-slate-600">
+            Használja kalkulátorunkat az első becsléshez, majd kérjen ingyenes helyszíni felmérést.
+          </p>
+        </div>
+        <a
+          href="/klima-meretezo-kalkulator"
+          class="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-500"
+        >
+          Teljes kalkulátor
+        </a>
+      </div>
+      <KlimaCalculator inline />
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold text-slate-900">Klímaszerelés folyamata</h2>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        {[
+          "Ingyenes helyszíni felmérés",
+          "Készülék kiválasztás és ajánlatadás",
+          "Időpont egyeztetés",
+          "Szakszerű beszerelés",
+          "Beüzemelés és betanítás",
+        ].map((step, index) => (
+          <div
+            key={step}
+            class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm text-slate-700"
+          >
+            <p class="text-lg font-semibold text-slate-900">{index + 1}.</p>
+            <p class="mt-2">{step}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold text-slate-900">Árak (példa)</h2>
+      <p class="text-sm text-slate-600">
+        Az alábbi árak irányárak, a pontos ajánlatot ingyenes felmérés után adjuk.
+      </p>
+      <PriceTable items={pricing} />
+      <p class="text-sm text-slate-600">
+        Az ár tartalmazza: kiszállás, felmérés, anyagköltség, beüzemelés és 1 év garancia.
+      </p>
+      <a
+        href="/arak"
+        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
+      >
+        Teljes árlista
+      </a>
+    </section>
+
+    <DistrictGrid />
+
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold text-slate-900">Miért minket válasszon?</h2>
+      <div class="grid gap-6 lg:grid-cols-4">
+        {[
+          { title: "Szakértelem", desc: "Évek tapasztalata és több mint 5000 szerelés." },
+          { title: "Átlátható árak", desc: "Nincs rejtett költség, világos ajánlatok." },
+          { title: "Precíz munkavégzés", desc: "Esztétikus és tiszta szerelés minden alkalommal." },
+          { title: "Garancia", desc: "12 hónap jótállás a munkára és a használt anyagokra." },
+        ].map((item) => (
+          <div key={item.title} class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="text-lg font-semibold text-slate-900">{item.title}</h3>
+            <p class="mt-2 text-sm text-slate-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </section>
+</BaseLayout>

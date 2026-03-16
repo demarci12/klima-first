@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FAQ from "../../components/FAQ.astro";
+import { faq } from "../../data/faq";
+
+const title = "Klíma Tisztítás és Karbantartás Budapest | KlimaFirst";
+const description =
+  "Professzionális klíma tisztítás és karbantartás Budapesten a jobb légminőségért és hosszabb élettartamért.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Klíma tisztítás",
+  serviceType: "HVAC Maintenance",
+  provider: { "@type": "LocalBusiness", name: "KlimaFirst", url: "https://klimafirst.hu" },
+  areaServed: { "@type": "City", name: "Budapest" },
+  description,
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "87" },
+  offers: { "@type": "Offer", priceCurrency: "HUF", price: "75000", priceSpecification: { "@type": "UnitPriceSpecification", priceCurrency: "HUF", unitText: "beltéri egység" } },
+};
+---
+
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/szolgaltatasok/klima-tisztitas" schema={schema}>
+  <article class="space-y-8">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-900">Klíma Tisztítás és Karbantartás</h1>
+      <p class="mt-3 text-sm text-slate-600">
+        Bérelje meg a rendszeres karbantartást, hogy klímája hosszabb ideig tisztán és hatékonyan működjön.
+      </p>
+    </header>
+
+    <section class="grid gap-6 lg:grid-cols-2">
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">Mit tartalmaz a karbantartás?</h2>
+        <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+          <li>Beltéri egység és szűrők tisztítása.</li>
+          <li>Hőcserélő és csővezetékek ellenőrzése.</li>
+          <li>Folyadékszivárgás keresése és tömítések ellenőrzése.</li>
+          <li>Rendszeres karbantartási dokumentáció és javaslatok.</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">Miért fontos?</h2>
+        <ul class="list-inside list-disc space-y-2 text-sm text-slate-600">
+          <li>Jobb energiahatékonyság és alacsonyabb fogyasztás.</li>
+          <li>Egészségesebb levegő és kevesebb allergén.</li>
+          <li>Hosszabb élettartam és kevesebb meghibásodás.</li>
+          <li>Gyorsabb reagálás a meghibásodásokra karbantartási szerződés esetén.</li>
+        </ul>
+      </div>
+    </section>
+
+    <FAQ items={faq.slice(0, 5)} />
+  </article>
+</BaseLayout>

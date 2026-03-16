@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Klímakészülékek | KlimaFirst";
+const description =
+  "Fisher, Fujitsu és Toshiba klímák Budapesten. Megbízható márkák és személyre szabott ajánlatok.";
+---
+
+<BaseLayout title={title} description={description} canonical="https://klimafirst.hu/keszulekek">
+  <article class="space-y-8">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-900">Klímakészülékek</h1>
+      <p class="mt-3 text-sm text-slate-600">
+        Válogasson kiemelt márkáink közül, és kérjen testreszabott ajánlatot az optimális megoldásért.
+      </p>
+    </header>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <a
+        href="/keszulekek/fisher-klima"
+        class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-primary hover:bg-slate-50"
+      >
+        <h2 class="text-lg font-semibold text-slate-900">Fisher Klíma</h2>
+        <p class="mt-2 text-sm text-slate-600">Megbízható teljesítmény és kedvező árak.</p>
+      </a>
+
+      <a
+        href="/keszulekek/fujitsu-klima"
+        class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-primary hover:bg-slate-50"
+      >
+        <h2 class="text-lg font-semibold text-slate-900">Fujitsu Klíma</h2>
+        <p class="mt-2 text-sm text-slate-600">Csendes működés és modern dizájn a legújabb technológiával.</p>
+      </a>
+
+      <a
+        href="/keszulekek/toshiba-klima"
+        class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-primary hover:bg-slate-50"
+      >
+        <h2 class="text-lg font-semibold text-slate-900">Toshiba Klíma</h2>
+        <p class="mt-2 text-sm text-slate-600">Energiahatékony és tartós készülékek professzionális beállítással.</p>
+      </a>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+---
+
+<div id="cookie-banner" class="fixed bottom-4 left-4 right-4 z-50 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-lg md:max-w-md md:left-auto md:right-6">
+  <div class="flex flex-col gap-3 text-sm text-slate-700">
+    <p>
+      Ez a weboldal sütiket használ a tartalom testreszabásához és a felhasználói élmény javításához. A folytatás azt jelenti, hogy hozzájárulsz a sütik használatához.
+    </p>
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <a href="/sutik" class="text-primary hover:underline">Tudj meg többet</a>
+      <button
+        id="cookie-accept"
+        class="rounded-full bg-primary px-4 py-2 text-white shadow-sm transition hover:bg-blue-800"
+      >
+        Elfogadom
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const key = "klimafirst_cookie_consent";
+  const banner = document.getElementById("cookie-banner");
+  const button = document.getElementById("cookie-accept");
+
+  function show() {
+    if (!localStorage.getItem(key)) {
+      banner?.classList.remove("hidden");
+    }
+  }
+
+  function accept() {
+    localStorage.setItem(key, "1");
+    banner?.classList.add("hidden");
+  }
+
+  button?.addEventListener("click", accept);
+  show();
+</script>
